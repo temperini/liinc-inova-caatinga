@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "inova-caatinga",
+  "version": "0.1.0",
+  "description": "Agente consultor-pesquisador e avaliador parceiro para candidaturas ao Edital nº 03/2026 Inova Caatinga Alagoas (Sebrae/AL e Fapeal).",
+  "author": {
+    "name": "temperini"
+  },
+  "repository": "https://github.com/temperini/liinc-inova-caatinga",
+  "keywords": [
+    "inova-caatinga",
+    "alagoas",
+    "edital",
+    "sebrae",
+    "fapeal",
+    "caatinga",
+    "bioeconomia",
+    "startups"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Inova Caatinga AL",
+        "shortDescription": "Escreva e revise sua candidatura ao Edital Inova Caatinga Alagoas.",
+        "longDescription": "Consultor-pesquisador e avaliador parceiro: triagem de elegibilidade, respostas do formulário, dossiê com evidências e revisão crítica pelos critérios do Edital nº 03/2026 (Sebrae/AL e Fapeal).",
+        "category": "Productivity",
+        "defaultPrompt": [
+          "Quero montar minha candidatura ao Inova Caatinga Alagoas.",
+          "Revise meu projeto como um avaliador do Inova Caatinga faria."
+        ]
+      }
+    }
+  }
+}

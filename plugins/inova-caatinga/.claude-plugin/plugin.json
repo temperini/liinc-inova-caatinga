@@ -1,0 +1,19 @@
+{
+  "name": "inova-caatinga",
+  "version": "0.1.0",
+  "description": "Agente consultor-pesquisador e avaliador parceiro para candidaturas ao Edital nº 03/2026 Inova Caatinga Alagoas (Sebrae/AL e Fapeal).",
+  "author": {
+    "name": "temperini"
+  },
+  "repository": "https://github.com/temperini/liinc-inova-caatinga",
+  "keywords": [
+    "inova-caatinga",
+    "alagoas",
+    "edital",
+    "sebrae",
+    "fapeal",
+    "caatinga",
+    "bioeconomia",
+    "startups"
+  ]
+}

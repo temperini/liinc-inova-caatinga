@@ -1,0 +1,20 @@
+{
+  "name": "liinc-inova-caatinga",
+  "interface": {
+    "displayName": "Inova Caatinga AL"
+  },
+  "plugins": [
+    {
+      "name": "inova-caatinga",
+      "source": {
+        "source": "local",
+        "path": "./plugins/inova-caatinga"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

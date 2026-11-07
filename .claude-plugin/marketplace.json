@@ -1,0 +1,15 @@
+{
+  "name": "liinc-inova-caatinga",
+  "description": "Agente de IA para elaborar e revisar candidaturas ao Edital nº 03/2026 Inova Caatinga Alagoas (Sebrae/AL e Fapeal).",
+  "owner": {
+    "name": "temperini"
+  },
+  "plugins": [
+    {
+      "name": "inova-caatinga",
+      "source": "./plugins/inova-caatinga",
+      "description": "Agente consultor-pesquisador e avaliador parceiro para candidaturas ao Edital nº 03/2026 Inova Caatinga Alagoas (Sebrae/AL e Fapeal).",
+      "category": "productivity"
+    }
+  ]
+}
