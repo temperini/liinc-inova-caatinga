@@ -19,3 +19,5 @@ Importe este repositório e selecione a branch existente. Configure:
 - Output Directory: `.`
 
 Não é necessário instalar dependências nem definir variáveis de ambiente. GitHub Pages não é utilizado.
+
+O cronômetro de 15 minutos começa automaticamente na primeira entrada no slide 2. Voltar ao slide 2 não reinicia o tempo. O controle T permite pausar e retomar. O tempo aparece em negrito.
