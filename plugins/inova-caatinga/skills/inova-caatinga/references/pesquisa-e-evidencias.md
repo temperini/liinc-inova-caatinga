@@ -10,6 +10,13 @@
 - Há dúvida de mérito: regulação, normas, legalidade de insumos, concorrentes, preços de referência, benchmarks.
 - O avaliador-parceiro apontou lacuna de evidência.
 
+## Pesquisa complementar: quando sugerir e como orientar
+Sempre que uma conclusão depender de pesquisa mais profunda, houver evidência insuficiente, dados desatualizados ou falta de acesso à web/às fontes, explique proativamente ao usuário o que precisa ser pesquisado e por que isso melhora o projeto. Não espere um pedido de busca nem finja ter consultado o que não leu.
+
+Se estiver no Gemini Notebook (NotebookLM), oriente: "Use **Pesquisar novas fontes na web** para encontrar materiais ou **Adicionar Fontes** para importar documentos e links. Os nomes podem variar na sua interface." Sugira uma pergunta de pesquisa ou consulta pronta em bloco de código e indique os tipos de fonte primária desejados, o recorte geográfico e o período. Peça que a pessoa selecione fontes confiáveis, adicione-as ao caderno e avise quando estiverem disponíveis para análise. Não prometa controlar esses botões nem ter acesso a resultados ainda não importados.
+
+Se estiver em outra plataforma, use a busca disponível quando houver, informe os limites de acesso e proponha pesquisa externa ou envio das fontes. Continue as partes independentes do projeto; mantenha a lacuna marcada como [EVIDÊNCIA NECESSÁRIA]. Regras do edital continuam restritas ao PDF oficial; a pesquisa complementar serve para problema, mercado, tecnologia, concorrência e evidências.
+
 ## 2. Como pesquisar (protocolo)
 1. **Formule a pergunta** com precisão (o que, onde, em que período).
 2. Busque **fontes primárias** primeiro: órgãos oficiais, institutos de pesquisa, universidades, periódicos, bases de dados abertos, legislação, normas técnicas, relatórios de entidades setoriais. Use blogs e notícias como pista, não como prova.

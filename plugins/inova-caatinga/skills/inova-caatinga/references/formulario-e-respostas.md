@@ -45,13 +45,9 @@ Sugira, no dossiê, uma proposta de **plano de entregas em 6 meses** coerente co
 ## 4. Modelo de entrega ao usuário
 
 **Bloco A: respostas por campo** (copiáveis)
-```
-CAMPO: <nome exato do campo>
-LIMITE: <caracteres, se informado> | VERSÃO: curta | longa
-TEXTO:
-...
-EVIDÊNCIAS CITADAS: <lista> | PENDÊNCIAS: <[EVIDÊNCIA NECESSÁRIA] ...>
-```
+Informe fora do bloco o nome exato do campo, o limite e a versão (curta ou longa). O edital lista temas, não garante que cada tema seja um campo separado: peça as perguntas e os limites reais do formulário antes de adaptar campo a campo.
+
+Exiba cada resposta em um bloco de código `text`, contendo SOMENTE o texto destinado ao campo. Não inclua rótulos como CAMPO, LIMITE, TEXTO, EVIDÊNCIAS ou o parecer no conteúdo a colar. Cada versão fica em seu próprio bloco. Abaixo, fora do bloco, liste fontes, evidências pendentes e a revisão do avaliador. Use esse formato também ao revisar uma resposta já escrita.
 
 **Bloco B: dossiê de apoio** (seções)
 1. Resumo executivo (1 página). 2. Problema e oportunidade (com dados). 3. Solução e tecnologia (maturidade, diferenciais, riscos, PI). 4. Mercado (**de baixo para cima**: clientes × preço × frequência; fonte de cada premissa). 5. Modelo de negócio e finanças (receita, custos, margem, ponto de equilíbrio, uso da bolsa). 6. Ligação com a Caatinga (insumos, comunidades, rastreabilidade, legalidade, impacto). 7. Tecnologia social ou não digital (se houver). 8. Time e parcerias. 9. Evidências (tabela: afirmação → evidência → fonte → data). 10. Riscos e mitigação. 11. Plano de 6 meses (entregas) e indicadores. 12. Checklist de conformidade com o edital.

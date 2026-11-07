@@ -38,7 +38,7 @@ Use se o modo completo não funcionar bem no seu caso. O campo de personalizaç�
 
 ## O que muda no NotebookLM
 - **Ele responde com base nas fontes do caderno.** Para as regras, a fonte é o PDF do edital.
-- **O chat não navega na web.** Para mercado, ciência, regulação e concorrentes, use *Descobrir fontes* ou a pesquisa na web do NotebookLM para **importar fontes confiáveis** (órgãos oficiais, institutos de pesquisa, universidades, legislação) e peça ao agente para usá-las. Sem fonte, o agente marca `[EVIDÊNCIA NECESSÁRIA]`.
+- **O chat não navega na web.** Para mercado, ciência, regulação e concorrentes, use **Pesquisar novas fontes na web** ou **Adicionar Fontes** no Gemini Notebook para **importar fontes confiáveis** (órgãos oficiais, institutos de pesquisa, universidades, legislação) e peça ao agente para usá-las. Sem fonte, o agente marca `[EVIDÊNCIA NECESSÁRIA]`.
 - **Ficha do Projeto:** a cada marco o agente entrega um resumo. **Salve como Nota** no caderno (e, se quiser, converta a nota em fonte) para retomar depois.
 - **As instruções do chat valem para o caderno todo** e podem afetar também outros recursos do NotebookLM (resumos, áudio). Se isso atrapalhar, use outro caderno para esses usos.
 

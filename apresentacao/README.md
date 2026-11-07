@@ -1,6 +1,6 @@
 # Como farmar aura no Inova Caatinga
 
-Apresentação web 16:9, 10 slides, roteiro de 15 minutos. Evandro Temperini · Maratona LIINC · Santana do Ipanema/AL · 07/11/2026.
+Apresentação web 16:9, 19 telas, roteiro total de 15 minutos. Evandro Temperini · Maratona LIINC · Santana do Ipanema/AL · 07/11/2026.
 
 Abra `index.html`. Teclas: setas/espaço (navegar), F (tela cheia), N (notas), T (cronômetro), G (índice).
 
@@ -21,3 +21,5 @@ Importe este repositório e selecione a branch existente. Configure:
 Não é necessário instalar dependências nem definir variáveis de ambiente. GitHub Pages não é utilizado.
 
 O cronômetro de 15 minutos começa automaticamente na primeira entrada no slide 2. Voltar ao slide 2 não reinicia o tempo. O controle T permite pausar e retomar. O tempo aparece em negrito.
+
+Pontuação em quatro telas; cada comparação EVITE/ESCREVA COM CLAREZA em duas telas consecutivas. Temas de redação são agrupamentos do edital, não nomes confirmados de campos do formulário. O TXT de downloads é sincronizado a partir de dist/ após executar scripts/build-agent.py.
