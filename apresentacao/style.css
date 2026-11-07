@@ -114,3 +114,5 @@ body{font-family:InterLocal,Arial,Helvetica,sans-serif}
 @keyframes combo-impact{0%{transform:scale(1)}30%{transform:scale(1.22) rotate(-3deg);filter:brightness(1.8) drop-shadow(0 0 20px #d9fc50)}65%{transform:scale(.98) rotate(1deg)}100%{transform:scale(1);filter:brightness(1)}}
 @keyframes level-impact{0%{transform:scale(1);filter:brightness(1)}20%{transform:scale(1.3) rotate(3deg);filter:brightness(2) drop-shadow(0 0 28px #ffd04b)}45%{transform:scale(1.15) rotate(-2deg);filter:brightness(1.7) drop-shadow(0 0 42px #d9fc50)}100%{transform:scale(1);filter:brightness(1)}}
 @media(prefers-reduced-motion:reduce){.aura-game-hud.combo-impact,.aura-game-hud.level-impact{animation:none}}
+
+.cover h1 .small{display:flex;align-items:center;gap:22px}.cover .inova-logo{display:block;width:250px;height:auto;object-fit:contain}
