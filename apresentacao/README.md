@@ -9,3 +9,13 @@ Abra `index.html`. Teclas: setas/espaço (navegar), F (tela cheia), N (notas), T
 O endereço de download usa a branch existente do repositório, indicada em `config.js` e nos links HTML. Se ela for renomeada, atualize os links.
 
 Foto e logo fornecidos pelo usuário. Sem bibliotecas remotas para execução. Os downloads exigem internet.
+
+## Publicar no Vercel
+
+Importe este repositório e selecione a branch existente. Configure:
+- Root Directory: `apresentacao`
+- Framework Preset: `Other`
+- Build Command: vazio (site estático, sem build)
+- Output Directory: `.`
+
+Não é necessário instalar dependências nem definir variáveis de ambiente. GitHub Pages não é utilizado.
