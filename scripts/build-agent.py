@@ -79,16 +79,61 @@ def build_zip() -> Path:
     return out
 
 
+NLM_DIR = ROOT / "notebooklm"
+NLM_LIMIT = 10_000  # limite do campo de personalização do chat do NotebookLM
+NLM_OUT = ROOT / "NOTEBOOKLM.md"
+BASE_OUT = ROOT / "dist" / "BASE-DO-AGENTE-INOVA-CAATINGA.txt"
+BASE_FILES = [
+    "references/elegibilidade-vedacoes.md",
+    "references/criterios-e-notas.md",
+    "references/formulario-e-respostas.md",
+    "references/avaliador-objecoes.md",
+    "references/entrevista-diagnostico.md",
+    "references/pesquisa-e-evidencias.md",
+]
+
+
+def build_notebooklm() -> tuple[str, str]:
+    """Retorna (guia NOTEBOOKLM.md, texto da fonte BASE DO AGENTE)."""
+    instr = (NLM_DIR / "instrucoes-do-chat.txt").read_text(encoding="utf-8").strip()
+    if len(instr) > NLM_LIMIT:
+        raise SystemExit(f"instrucoes-do-chat.txt tem {len(instr)} caracteres (limite {NLM_LIMIT}).")
+    ativ = (NLM_DIR / "ativacao.txt").read_text(encoding="utf-8").strip()
+    guide = (NLM_DIR / "NOTEBOOKLM.template.md").read_text(encoding="utf-8")
+    guide = (guide.replace("{{INSTRUCOES}}", instr)
+                  .replace("{{ATIVACAO}}", ativ)
+                  .replace("{{N_CHARS}}", f"{len(instr):,}".replace(",", ".")))
+    head = (
+        "BASE DO AGENTE — INOVA CAATINGA AL (manual de método)\n\n"
+        "Esta fonte é o MANUAL DE MÉTODO do agente (perguntas, triagem, critérios, objeções, "
+        "formatos de resposta e pesquisa). NÃO é a fonte das regras do edital: para regras, prazos, "
+        "valores, critérios e documentos, vale SOMENTE o PDF do Edital nº 03/2026. "
+        "Em conflito com o PDF, vale o PDF.\n"
+    )
+    parts = [head]
+    for rel in BASE_FILES:
+        parts.append(f"\n\n==========\nSEÇÃO: {rel}\n==========\n\n" + (SKILL_DIR / rel).read_text(encoding="utf-8").strip() + "\n")
+    return guide, "".join(parts)
+
+
 def main() -> int:
     content = build()
+    guide, base = build_notebooklm()
     if "--check" in sys.argv:
-        current = OUT.read_text(encoding="utf-8") if OUT.exists() else ""
-        if current != content:
-            print("AGENT.md está desatualizado. Rode: python3 scripts/build-agent.py")
-            return 1
-        print("AGENT.md está em dia.")
-        return 0
+        ok = True
+        for path, new in ((OUT, content), (NLM_OUT, guide), (BASE_OUT, base)):
+            cur = path.read_text(encoding="utf-8") if path.exists() else ""
+            if cur != new:
+                print(f"{path.relative_to(ROOT)} está desatualizado. Rode: python3 scripts/build-agent.py")
+                ok = False
+        if ok:
+            print("AGENT.md, NOTEBOOKLM.md e a base do agente estão em dia.")
+        return 0 if ok else 1
     OUT.write_text(content, encoding="utf-8")
+    NLM_OUT.write_text(guide, encoding="utf-8")
+    (ROOT / "dist").mkdir(exist_ok=True)
+    BASE_OUT.write_text(base, encoding="utf-8")
+    print(f"NOTEBOOKLM.md gerado; BASE-DO-AGENTE: {len(base):,} caracteres")
     words = len(content.split())
     print(f"AGENT.md gerado: {len(content):,} caracteres, ~{words:,} palavras (~{int(len(content)/3.6):,} tokens estimados)")
     z = build_zip()

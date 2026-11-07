@@ -43,6 +43,9 @@ Depois, é só dizer: *"Quero montar minha candidatura ao Inova Caatinga."* O Cl
 
 ---
 
+### Caminho 4 — Gemini Notebook (NotebookLM), gratuito ou pago
+Guia passo a passo com os prompts prontos e o edital como fonte: **[NOTEBOOKLM.md](NOTEBOOKLM.md)**.
+
 ## O que o agente faz
 1. **Triagem de elegibilidade e vedações** (com item e página do edital).
 2. **Entrevista guiada** ou leitura dos arquivos que você enviar (até 3 perguntas por vez).
@@ -70,6 +73,7 @@ Depois, é só dizer: *"Quero montar minha candidatura ao Inova Caatinga."* O Cl
 | Claude.ai | marketplace por link ou ZIP da skill | Descrito na documentação oficial; **a testar** (planos variam). |
 | Codex / ChatGPT desktop | marketplace do repositório | Formato segue a documentação oficial da OpenAI; **a testar**. |
 | ChatGPT (web) | ZIP da skill | Baseado em guias de terceiros; **a testar**. |
+| Gemini Notebook (NotebookLM) | prompts do guia + PDF do edital como fonte | Simulado com o texto do edital; **a testar no produto**. |
 | Gemini, DeepSeek e outras | Caminho 1 ou 2 (`AGENT.md`) | **A testar.** Sem acesso a links, só o Caminho 2 é seguro. |
 
 Os resultados dos testes entram em [`tests/casos-de-teste.md`](tests/casos-de-teste.md).
@@ -79,7 +83,10 @@ Os resultados dos testes entram em [`tests/casos-de-teste.md`](tests/casos-de-te
 ## Estrutura do repositório
 ```
 AGENT.md                          agente portátil, arquivo único (GERADO, não edite à mão)
+NOTEBOOKLM.md                     guia + prompts para o Gemini Notebook (GERADO a partir de notebooklm/)
+notebooklm/                       fonte dos prompts do NotebookLM (instruções do chat ≤ 10.000 caracteres)
 dist/inova-caatinga-skill.zip     skill compactada para upload manual (GERADO)
+dist/BASE-DO-AGENTE-INOVA-CAATINGA.txt  manual do agente para usar como fonte no NotebookLM (GERADO)
 .claude-plugin/marketplace.json   catálogo para Claude (e lido pelo app do ChatGPT)
 .agents/plugins/marketplace.json  catálogo para Codex/ChatGPT
 plugins/inova-caatinga/
