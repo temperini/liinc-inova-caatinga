@@ -108,3 +108,9 @@ body{font-family:InterLocal,Arial,Helvetica,sans-serif}
 
 /* A explosão acompanha o tamanho real do texto, não a largura da coluna. */
 .slide.active .four-scores strong,.slide.active .ts-focus>strong,.slide.active .bonus-focus strong,.slide.active .calculation-focus strong{width:fit-content;max-width:100%}
+
+/* Impactos distintos para combo e evolução. */
+.aura-game-hud.combo-impact{animation:combo-impact .9s ease-out both}.aura-game-hud.level-impact{animation:level-impact 1.1s ease-out both}.aura-game-hud.level-impact strong{color:#fff;text-shadow:0 0 14px #fff,0 0 30px #d9fc50,0 0 60px #ffb932}.aura-pop-4{font-size:44px;letter-spacing:3px;text-shadow:0 0 8px #fff,0 0 24px #d9fc50,0 0 46px #ffaf2b}
+@keyframes combo-impact{0%{transform:scale(1)}30%{transform:scale(1.22) rotate(-3deg);filter:brightness(1.8) drop-shadow(0 0 20px #d9fc50)}65%{transform:scale(.98) rotate(1deg)}100%{transform:scale(1);filter:brightness(1)}}
+@keyframes level-impact{0%{transform:scale(1);filter:brightness(1)}20%{transform:scale(1.3) rotate(3deg);filter:brightness(2) drop-shadow(0 0 28px #ffd04b)}45%{transform:scale(1.15) rotate(-2deg);filter:brightness(1.7) drop-shadow(0 0 42px #d9fc50)}100%{transform:scale(1);filter:brightness(1)}}
+@media(prefers-reduced-motion:reduce){.aura-game-hud.combo-impact,.aura-game-hud.level-impact{animation:none}}

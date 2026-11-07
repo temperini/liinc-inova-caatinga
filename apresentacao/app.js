@@ -40,3 +40,67 @@ const initial=parseInt(location.hash.slice(1),10);go(Number.isFinite(initial)?in
   const observer=new MutationObserver(sync);targets.forEach(el=>observer.observe(el,{attributes:true,attributeFilter:['class']}));
   reduced.addEventListener('change',sync);sync();
 })();
+
+// Contador fictício para o encerramento em estilo game.
+(()=>{
+  const slide=document.querySelector('.gratitude');
+  const display=slide?.querySelector('.aura-game-hud strong');
+  if(!slide||!display)return;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let score=1000, timer=null;
+  const render=()=>{display.textContent='+'+score.toLocaleString('pt-BR')};
+  function sync(){
+    if(timer!==null){clearInterval(timer);timer=null}
+    if(!slide.classList.contains('active')||document.hidden||reduced.matches)return;
+    timer=setInterval(()=>{score+=Math.floor(200+Math.random()*1000);render()},90);
+  }
+  const hud=slide.querySelector('.aura-game-hud');
+  let impactTimer=null;
+  function boost(kind,multiplier){
+    if(!slide.classList.contains('active')||document.hidden||reduced.matches)return;
+    score=Math.floor(score*multiplier);render();
+    hud.classList.remove('combo-impact','level-impact');void hud.offsetWidth;
+    hud.classList.add(kind);clearTimeout(impactTimer);impactTimer=setTimeout(()=>hud.classList.remove(kind),1100);
+  }
+  const combo=slide.querySelector('.aura-pop-2');
+  const level=slide.querySelector('.aura-pop-4');
+  for(const event of ['animationstart','animationiteration']){
+    combo.addEventListener(event,()=>boost('combo-impact',3));
+    level.addEventListener(event,()=>boost('level-impact',5));
+  }
+  new MutationObserver(sync).observe(slide,{attributes:true,attributeFilter:['class']});
+  document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);render();sync();
+})();
+
+// Conta os valores das telas de pontuação sem modificar a estrutura das fórmulas.
+(()=>{
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const slides=[...document.querySelectorAll('.score-focus')];
+  const selector='.four-scores strong,.ts-focus>strong,.bonus-focus strong,.calculation-focus strong';
+  const originals=new Map();let frame=null;
+  slides.forEach(slide=>slide.querySelectorAll(selector).forEach(el=>{
+    const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode()))if(/\d/.test(node.nodeValue))originals.set(node,node.nodeValue);
+  }));
+  function restore(){if(frame!==null)cancelAnimationFrame(frame);frame=null;originals.forEach((value,node)=>{node.nodeValue=value})}
+  function countText(text,progress){return text.replace(/\d+(?:,\d+)?/g,raw=>{
+    const decimals=(raw.split(',')[1]||'').length;const value=Number(raw.replace(',','.'));
+    if(progress>=1)return raw;
+    const count=decimals?value*progress:Math.floor(value*progress);
+    return decimals?count.toFixed(decimals).replace('.',','):String(count);
+  })}
+  function sync(){
+    restore();if(reduced.matches)return;
+    const active=slides.find(slide=>slide.classList.contains('active'));if(!active)return;
+    const entries=[];active.querySelectorAll(selector).forEach(el=>{
+      const delay=parseFloat(getComputedStyle(el).animationDelay)||0;
+      const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let node;
+      while((node=walker.nextNode()))if(originals.has(node)){entries.push({node,text:originals.get(node),delay:delay*1000});node.nodeValue=countText(originals.get(node),0)}
+    });
+    const start=performance.now();
+    function tick(now){let done=true;entries.forEach(item=>{const t=Math.max(0,Math.min(1,(now-start-item.delay)/1000));if(t<1)done=false;item.node.nodeValue=countText(item.text,1-Math.pow(1-t,3))});if(!done)frame=requestAnimationFrame(tick);else{entries.forEach(item=>{item.node.nodeValue=item.text});frame=null}}
+    frame=requestAnimationFrame(tick);
+  }
+  const observer=new MutationObserver(sync);slides.forEach(slide=>observer.observe(slide,{attributes:true,attributeFilter:['class']}));
+  reduced.addEventListener('change',sync);sync();
+})();
