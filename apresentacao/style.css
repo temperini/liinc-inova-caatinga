@@ -57,3 +57,12 @@
   100%{opacity:.85;transform:scale(1.025,1.04);filter:brightness(1.22) drop-shadow(0 0 42px #ffda50bb)}
 }
 @media(prefers-reduced-motion:reduce){.cover::after{animation:none;opacity:.75}}
+
+/* Exemplos do bônus em duas colunas, com leitura confortável. */
+.bonus-focus p{font-size:23px;line-height:1.35}
+
+/* Inter é distribuída localmente sob a licença OFL. */
+@font-face{font-family:InterLocal;src:url("assets/fontes/Inter-variavel.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+body{font-family:InterLocal,Arial,Helvetica,sans-serif}
+.speaker-name p{max-width:570px}
+.gratitude{background:var(--ink);isolation:isolate}.gratitude-media{position:absolute;inset:0;background-image:linear-gradient(90deg,#101814 0%,#101814ed 40%,#10181466 100%),url("https://media1.tenor.com/m/wb_rblUTxVAAAAAd/boat-kid-aura-farming-pacu-jalur.gif");background-size:cover;background-position:center;z-index:-1}.gratitude-content{position:relative;margin-top:145px}.gratitude h2{font-size:140px;letter-spacing:-7px;color:var(--lime)}.gratitude-message{font-size:40px;margin-top:28px}.gratitude-credit{position:absolute;right:88px;bottom:78px;font-size:15px;color:#e1e8d8}.gratitude-credit a{color:inherit}@media(prefers-reduced-motion:reduce){.gratitude-media{background-image:linear-gradient(90deg,#101814 0%,#101814b8 100%),url("assets/fundos/caatinga.webp")}}
