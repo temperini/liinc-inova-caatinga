@@ -16,3 +16,27 @@ const config=window.AURA_CONFIG||{};if(config.prompt){$('#prompt-pending').hidde
 $('#copy-prompt').onclick=async()=>{const b=$('#copy-prompt');try{await navigator.clipboard.writeText(config.prompt);b.textContent='✓ Prompt copiado';b.classList.remove('copied');void b.offsetWidth;b.classList.add('copied');$('#copy-feedback').textContent='Prompt copiado. Adicione o texto como uma fonte no Gemini Notebook.';setTimeout(()=>{b.textContent='Copiar novamente';b.classList.remove('copied')},2500)}catch{$('#prompt-text').focus();$('#prompt-text').select();$('#copy-feedback').textContent='Selecione o texto e use Ctrl+C ou Copiar no celular.'}};
 const initial=parseInt(location.hash.slice(1),10);go(Number.isFinite(initial)?initial-1:0);
 })();
+
+// Fagulhas decorativas apenas nas telas de aura e pontuação.
+(()=>{
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const targets=[...document.querySelectorAll('.cover,.score-focus,.gratitude')];
+  let layer=null, timer=null, finishTimer=null, fadeTimer=null;
+  function stop(){if(timer!==null)clearInterval(timer);if(finishTimer!==null)clearTimeout(finishTimer);if(fadeTimer!==null)clearTimeout(fadeTimer);timer=null;finishTimer=null;fadeTimer=null;if(layer)layer.remove();layer=null}
+  function emit(){
+    if(!layer||reduced.matches||document.hidden)return;
+    const spark=document.createElement('span');spark.className='aura-spark';
+    const cover=layer.parentElement.classList.contains('cover');
+    const end=layer.parentElement.classList.contains('gratitude');
+    const x=(cover||end?56:12)+Math.random()*(cover||end?42:76);
+    spark.style.setProperty('--x',x+'%');spark.style.setProperty('--y',(35+Math.random()*53)+'%');
+    spark.style.setProperty('--size',(3+Math.random()*8)+'px');
+    spark.style.setProperty('--duration',(1.7+Math.random()*2.5)+'s');
+    spark.style.setProperty('--drift',(-42+Math.random()*84)+'px');
+    spark.style.setProperty('--rise',(85+Math.random()*175)+'px');
+    spark.addEventListener('animationend',()=>spark.remove(),{once:true});layer.appendChild(spark);
+  }
+  function sync(){stop();if(reduced.matches)return;const active=targets.find(el=>el.classList.contains('active'));if(!active)return;layer=document.createElement('div');layer.className='aura-sparks';layer.setAttribute('aria-hidden','true');active.appendChild(layer);for(let i=0;i<4;i++)emit();timer=setInterval(emit,300);if(active.classList.contains('score-focus')){fadeTimer=setTimeout(()=>{if(timer!==null)clearInterval(timer);timer=null;if(layer)layer.classList.add('is-fading')},4200);finishTimer=setTimeout(stop,5000)}}
+  const observer=new MutationObserver(sync);targets.forEach(el=>observer.observe(el,{attributes:true,attributeFilter:['class']}));
+  reduced.addEventListener('change',sync);sync();
+})();
