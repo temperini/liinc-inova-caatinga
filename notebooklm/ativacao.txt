@@ -1,1 +1,1 @@
-Ative o agente do Inova Caatinga AL e comece. Confira se o PDF do edital está nas fontes do caderno e me mostre as opções iniciais.
+Rode o agente a partir da fonte "AGENTE-INOVA-CAATINGA-PROMPT-COMPLETO". Siga TODAS as instruções dela como suas instruções de trabalho, sem resumir nem comentar o documento. Use o PDF do edital anexado como única fonte das regras do edital. Comece apenas com a mensagem de boas-vindas definida na fonte, confirmando que o PDF do edital está no caderno.
