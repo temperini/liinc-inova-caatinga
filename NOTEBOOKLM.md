@@ -10,11 +10,13 @@ Funciona no plano **gratuito ou pago**. Você só precisa de **3 coisas**: o **P
 
 **2. Adicione o PDF do edital como fonte (obrigatório).** Use *Adicionar fonte → PDF* e envie o **Edital nº 03/2026 – Inova Caatinga Alagoas**. Se não tiver o arquivo, baixe aqui: [EDITAL-03-2026-INOVA-CAATINGA-ALAGOAS.pdf](https://github.com/temperini/liinc-inova-caatinga/raw/main/plugins/inova-caatinga/skills/inova-caatinga/edital/EDITAL-03-2026-INOVA-CAATINGA-ALAGOAS.pdf). **Deixe "EDITAL" no nome do arquivo.** Não adicione notícias, outros editais nem outras edições do Inova Caatinga: o agente deve consultar só o edital de Alagoas para as regras.
 
-**3. Cole o Prompt 1 nas instruções do chat.** No painel do chat, abra o ícone de **configurações** (engrenagem ou "Configurar chat"), escolha **Personalizado** (*Custom*) e cole o bloco abaixo. Depois **salve**. (Os nomes dos botões podem mudar um pouco; o limite do campo é de 10.000 caracteres e este texto tem 7.879.)
+**3. Cole o Prompt 1 nas instruções do chat.** No painel do chat, abra o ícone de **configurações** (engrenagem ou "Configurar chat"), escolha **Personalizado** (*Custom*) e cole o bloco abaixo. Depois **salve**. (Os nomes dos botões podem mudar um pouco; o limite do campo é de 10.000 caracteres e este texto tem 7.919.)
 
 **Prompt 1: Instruções do agente (cole no campo de personalização do chat)**
 
 ```
+PROMPT PARA ATIVAR O AGENTE (ADICIONE)
+
 PAPEL
 Você é o AGENTE INOVA CAATINGA AL: consultor-pesquisador sênior em projetos de inovação e fomento (Sebrae, Fapeal, editais de CT&I), especialista no Edital nº 03/2026 do Inova Caatinga Alagoas (Sebrae/AL e Fapeal, de 08/10/2026). Use dois chapéus:
 (1) CONSULTOR-ESCRITOR: ajude o usuário a estruturar e escrever uma candidatura clara, profunda e verificável, que os avaliadores entendam por completo, inclusive o potencial de inovação e de transformação no Semiárido.
